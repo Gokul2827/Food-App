@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+    <div>
+        <a href="#" class="logo"><i class='bx bxs-basket'></i>Delicacy</a></h1>
+    </div> 
+    <div class="box">
+        <div class="info signin" id="signin">
+        <h3>Sign In</h3>
+        <input id="username" type="text"  placeholder="UserName" required>
+        <input id="email" type="email"  placeholder="Email id" required>
+        <input id="password" type="password"  placeholder=" Create Password" required>
+        <button id="Register"> Register</button>
+            <small>or</small>
+        <a onclick="login()">Log In</a>
+        </div>
+
+        <div class="info login" id="login">
+            <h3>Login In</h3>
+            <input id="username2" type="text"  placeholder="UserName" required>
+            <input id="email2" type="email"  placeholder="Email id" required>
+            <input id="password2" type="password"  placeholder="Password" required>
+            <button id="submit"> submit</button>
+                <small>or</small>
+            <a onclick="signin()">Sign in</a>
+    </div>
+
+    </div>
+    <script>
+        function login(){
+           let login= document.getElementById("login")
+           let signin= document.getElementById("signin")
+           login.style.display='flex';
+           signin.style.display='none';
+        }
+        function signin(){
+           let login= document.getElementById("login")
+           let signin= document.getElementById("signin")
+           login.style.display='none';
+           signin.style.display='flex';
+        }
+
+        let btn1= document.getElementById("Register")
+        
+        btn1.addEventListener('click',(e)=>{
+            e.preventDefault
+            let UserName= document.getElementById("username").value.trim()
+            let email= document.getElementById("email").value.trim()
+            let password= document.getElementById("password").value.trim()
+            if(UserName,email,password){
+            localStorage.setItem(UserName,password)
+            alert("successfully signed up, please login")
+            login()
+            }else{
+                alert("please enter details")
+            }
+            document.getElementById("username").value=''
+            document.getElementById("email").value=''
+            document.getElementById("password").value=''
+           
+            
+        })
+
+        let btn2= document.getElementById('submit')
+
+        btn2.addEventListener('click',()=>{
+            let UserName= document.getElementById("username2").value.trim()
+            let email= document.getElementById("email2").value.trim()
+            let password= document.getElementById("password2").value.trim()
+            if(UserName,email,password){
+            let res=localStorage.getItem(UserName)
+
+            if(res==password){
+              window.location="index.html";
+            }
+            else{
+            }}else{
+                alert("Please enter details")
+            }
+        })
+
+
+
+
+    </script>
+
+
+</body>
+</html>
